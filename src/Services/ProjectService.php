@@ -14,6 +14,12 @@ class ProjectService extends QaseClient
 {
     private $uri = '/project';
 
+    /**
+     * @param array $paramArray
+     * @return ProjectList
+     * @throws \JsonMapper_Exception
+     * @throws \QaseRestApi\QaseException
+     */
     public function getAll($paramArray = [])
     {
         $response = $this->exec($this->uri . $this->toHttpQueryParameter($paramArray));
@@ -24,6 +30,12 @@ class ProjectService extends QaseClient
         );
     }
 
+    /**
+     * @param $code
+     * @return Project
+     * @throws \JsonMapper_Exception
+     * @throws \QaseRestApi\QaseException
+     */
     public function get($code)
     {
         $response = $this->exec($this->uri . '/' . $code);
@@ -34,6 +46,12 @@ class ProjectService extends QaseClient
         );
     }
 
+    /**
+     * @param ProjectCreate $projectCreate
+     * @return ProjectCreated
+     * @throws \JsonMapper_Exception
+     * @throws \QaseRestApi\QaseException
+     */
     public function create(ProjectCreate $projectCreate)
     {
         $data = json_encode($projectCreate);

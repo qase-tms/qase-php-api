@@ -38,7 +38,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "QaseRestApi\\JiraRestApiServiceProvider"
+                "QaseRestApi\\QaseRestApiServiceProvider"
             ]
         }
     }

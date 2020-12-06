@@ -14,13 +14,16 @@ class ProjectCreate
 
     /** @var string */
     public $description;
-    //    public access: AccessLevel = AccessLevel.NONE,
+
+    /** @var string */
+    public $access = 'none';
 
     /** @var string */
     public $group;
 
     /**
      * @param string $title
+     * @return $this
      */
     public function setTitle(string $title)
     {
@@ -31,6 +34,7 @@ class ProjectCreate
 
     /**
      * @param string $code
+     * @return $this
      */
     public function setCode(string $code)
     {
@@ -41,6 +45,7 @@ class ProjectCreate
 
     /**
      * @param string $description
+     * @return $this
      */
     public function setDescription(string $description)
     {
@@ -51,10 +56,22 @@ class ProjectCreate
 
     /**
      * @param string $group
+     * @return $this
      */
     public function setGroup(string $group)
     {
         $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * @param string $access
+     * @return $this
+     */
+    public function setAccess(string $access)
+    {
+        $this->access = $access;
 
         return $this;
     }

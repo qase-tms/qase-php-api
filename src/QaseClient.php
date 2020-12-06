@@ -57,7 +57,7 @@ class QaseClient
      * @param string $path
      * @throws QaseException
      */
-    private function configureClient($configuration = null, string $path = "./"): void
+    private function configureClient($configuration = null, $path = "./")
     {
         if ($configuration instanceof ClientInterface) {
             $this->client = $configuration;
@@ -164,6 +164,10 @@ class QaseClient
      */
     protected function toHttpQueryParameter(array $paramArray)
     {
+        if (empty($paramArray)) {
+            return null;
+        }
+
         return '?' . http_build_query($paramArray);
     }
 
@@ -178,6 +182,4 @@ class QaseClient
     {
         return $this->api_uri . '/' . preg_replace('/\//', '', $context, 1);
     }
-
-
 }
